@@ -2053,36 +2053,36 @@ button.bg-light:focus {
 @font-face {
     font-family: Roboto;
     font-weight: 200;
-    src: local(Roboto Thin), url(../font/roboto/Roboto-Thin.eot);
-    src: url(../font/roboto/Roboto-Thin.eot?#iefix) format("embedded-opentype"), url(../font/roboto/Roboto-Thin.woff2) format("woff2"), url(../font/roboto/Roboto-Thin.woff) format("woff"), url(../font/roboto/Roboto-Thin.ttf) format("truetype")
+    src: local(Roboto Thin), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Thin.eot);
+    src: url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Thin.eot?#iefix) format("embedded-opentype"), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Thin.woff2) format("woff2"), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Thin.woff) format("woff"), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Thin.ttf) format("truetype")
 }
 
 @font-face {
     font-family: Roboto;
     font-weight: 300;
-    src: local(Roboto Light), url(../font/roboto/Roboto-Light.eot);
-    src: url(../font/roboto/Roboto-Light.eot?#iefix) format("embedded-opentype"), url(../font/roboto/Roboto-Light.woff2) format("woff2"), url(../font/roboto/Roboto-Light.woff) format("woff"), url(../font/roboto/Roboto-Light.ttf) format("truetype")
+    src: local(Roboto Light), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Light.eot);
+    src: url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Light.eot?#iefix) format("embedded-opentype"), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Light.woff2) format("woff2"), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Light.woff) format("woff"), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Light.ttf) format("truetype")
 }
 
 @font-face {
     font-family: Roboto;
     font-weight: 400;
-    src: local(Roboto Regular), url(../font/roboto/Roboto-Regular.eot);
-    src: url(../font/roboto/Roboto-Regular.eot?#iefix) format("embedded-opentype"), url(../font/roboto/Roboto-Regular.woff2) format("woff2"), url(../font/roboto/Roboto-Regular.woff) format("woff"), url(../font/roboto/Roboto-Regular.ttf) format("truetype")
+    src: local(Roboto Regular), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Regular.eot);
+    src: url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Regular.eot?#iefix) format("embedded-opentype"), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Regular.woff2) format("woff2"), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Regular.woff) format("woff"), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Regular.ttf) format("truetype")
 }
 
 @font-face {
     font-family: Roboto;
     font-weight: 500;
-    src: url(../font/roboto/Roboto-Medium.eot);
-    src: url(../font/roboto/Roboto-Medium.eot?#iefix) format("embedded-opentype"), url(../font/roboto/Roboto-Medium.woff2) format("woff2"), url(../font/roboto/Roboto-Medium.woff) format("woff"), url(../font/roboto/Roboto-Medium.ttf) format("truetype")
+    src: url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Medium.eot);
+    src: url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Medium.eot?#iefix) format("embedded-opentype"), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Medium.woff2) format("woff2"), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Medium.woff) format("woff"), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Medium.ttf) format("truetype")
 }
 
 @font-face {
     font-family: Roboto;
     font-weight: 700;
-    src: url(../font/roboto/Roboto-Bold.eot);
-    src: url(../font/roboto/Roboto-Bold.eot?#iefix) format("embedded-opentype"), url(../font/roboto/Roboto-Bold.woff2) format("woff2"), url(../font/roboto/Roboto-Bold.woff) format("woff"), url(../font/roboto/Roboto-Bold.ttf) format("truetype")
+    src: url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Bold.eot);
+    src: url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Bold.eot?#iefix) format("embedded-opentype"), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Bold.woff2) format("woff2"), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Bold.woff) format("woff"), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Bold.ttf) format("truetype")
 }
 
 body {
@@ -2418,47 +2418,47 @@ strong {
 }
 
 .pattern-1 {
-    background: url(../img/overlays/01.png);
+    background: url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/img/overlays/01.png);
     background-attachment: fixed
 }
 
 .pattern-2 {
-    background: url(../img/overlays/02.png);
+    background: url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/img/overlays/02.png);
     background-attachment: fixed
 }
 
 .pattern-3 {
-    background: url(../img/overlays/03.png);
+    background: url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/img/overlays/03.png);
     background-attachment: fixed
 }
 
 .pattern-4 {
-    background: url(../img/overlays/04.png);
+    background: url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/img/overlays/04.png);
     background-attachment: fixed
 }
 
 .pattern-5 {
-    background: url(../img/overlays/05.png);
+    background: url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/img/overlays/05.png);
     background-attachment: fixed
 }
 
 .pattern-6 {
-    background: url(../img/overlays/06.png);
+    background: url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/img/overlays/06.png);
     background-attachment: fixed
 }
 
 .pattern-7 {
-    background: url(../img/overlays/07.png);
+    background: url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/img/overlays/07.png);
     background-attachment: fixed
 }
 
 .pattern-8 {
-    background: url(../img/overlays/08.png);
+    background: url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/img/overlays/08.png);
     background-attachment: fixed
 }
 
 .pattern-9 {
-    background: url(../img/overlays/09.png);
+    background: url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/img/overlays/09.png);
     background-attachment: fixed
 }
 
@@ -10661,11 +10661,11 @@ body.scrollable {
 }
 
 .carousel .carousel-control-prev-icon {
-    background-image: url(../img/svg/arrow_left.svg)
+    background-image: url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/img/svg/arrow_left.svg)
 }
 
 .carousel .carousel-control-next-icon {
-    background-image: url(../img/svg/arrow_right.svg)
+    background-image: url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/img/svg/arrow_right.svg)
 }
 
 .carousel .carousel-indicators li {
@@ -15679,7 +15679,7 @@ table.table a.btn.btn-whatsapp {
 .pswp__button--arrow--right::before {
     width: 44px;
     height: 44px;
-    background: url(../img/lightbox/default-skin.png) 0 0 no-repeat;
+    background: url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/img/lightbox/default-skin.png) 0 0 no-repeat;
     background-size: 264px 88px
 }
 
@@ -15691,7 +15691,7 @@ table.table a.btn.btn-whatsapp {
     .pswp--svg .pswp__button,
     .pswp--svg .pswp__button--arrow--left::before,
     .pswp--svg .pswp__button--arrow--right::before {
-        background-image: url(../img/lightbox/default-skin.svg)
+        background-image: url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/img/lightbox/default-skin.svg)
     }
 
     .pswp--svg .pswp__button--arrow--left,
@@ -15963,7 +15963,7 @@ table.table a.btn.btn-whatsapp {
 }
 
 .pswp__preloader--active .pswp__preloader__icn {
-    background: url(../img/lightbox/preloader.gif) 0 0 no-repeat
+    background: url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/img/lightbox/preloader.gif) 0 0 no-repeat
 }
 
 .pswp--css_animation .pswp__preloader--active {
