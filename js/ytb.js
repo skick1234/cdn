@@ -2,21 +2,21 @@
 /* Web: http://labnol.org/?p=27941 */
 
 window.addEventListener("load", function() {
-    var div, n,
-      v = document.getElementsByClassName("youtube-player");
-    for (n = 0; n < v.length; n++) {
-      div = document.createElement("div");
-      div.setAttribute("data-id", v[n].dataset.id);
-      div.innerHTML = labnolThumb(v[n].dataset.id);
-      div.onclick = labnolIframe;
-      v[n].appendChild(div);
-    }
-  });
+  var div, n,
+    v = document.getElementsByClassName("youtube-player");
+  for (n = 0; n < v.length; n++) {
+    div = document.createElement("div");
+    div.setAttribute("data-id", v[n].dataset.id);
+    div.innerHTML = labnolThumb(v[n].dataset.id);
+    div.onclick = labnolIframe;
+    v[n].appendChild(div);
+  }
+});
 
 function labnolThumb(id) {
-  var thumb = '<img src="https://i.ytimg.com/vi_webp/ID/hqdefault.webp">',
+  var thumb = '<img class="responsively-lazy" data-srcset="https://i.ytimg.com/vi_webp/ID/default.webp 120w, https://i.ytimg.com/vi_webp/ID/mqdefault.webp 320w, https://i.ytimg.com/vi_webp/ID/hqdefault.webp 480w" src="https://i.ytimg.com/vi_webp/ID/hqdefault.webp">',
     play = '<div class="play"></div>';
-  return thumb.replace("ID", id) + play;
+  return thumb.replace(/ID/g, id) + play;
 }
 
 function labnolIframe() {
