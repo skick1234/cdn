@@ -2051,42 +2051,42 @@ button.bg-light:focus {
 }
 
 @font-face {
-    font-family: Roboto;
+font-display: swap; font-family: Roboto;
     font-weight: 200;
     src: local(Roboto Thin), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Thin.eot);
     src: url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Thin.eot?#iefix) format("embedded-opentype"), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Thin.woff2) format("woff2"), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Thin.woff) format("woff"), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Thin.ttf) format("truetype")
 }
 
 @font-face {
-    font-family: Roboto;
+font-display: swap; font-family: Roboto;
     font-weight: 300;
     src: local(Roboto Light), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Light.eot);
     src: url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Light.eot?#iefix) format("embedded-opentype"), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Light.woff2) format("woff2"), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Light.woff) format("woff"), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Light.ttf) format("truetype")
 }
 
 @font-face {
-    font-family: Roboto;
+font-display: swap; font-family: Roboto;
     font-weight: 400;
     src: local(Roboto Regular), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Regular.eot);
     src: url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Regular.eot?#iefix) format("embedded-opentype"), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Regular.woff2) format("woff2"), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Regular.woff) format("woff"), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Regular.ttf) format("truetype")
 }
 
 @font-face {
-    font-family: Roboto;
+font-display: swap; font-family: Roboto;
     font-weight: 500;
     src: url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Medium.eot);
     src: url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Medium.eot?#iefix) format("embedded-opentype"), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Medium.woff2) format("woff2"), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Medium.woff) format("woff"), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Medium.ttf) format("truetype")
 }
 
 @font-face {
-    font-family: Roboto;
+font-display: swap; font-family: Roboto;
     font-weight: 700;
     src: url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Bold.eot);
     src: url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Bold.eot?#iefix) format("embedded-opentype"), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Bold.woff2) format("woff2"), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Bold.woff) format("woff"), url(https://cdn.jsdelivr.net/gh/skick1234/MaBu-CDN/font/roboto/Roboto-Bold.ttf) format("truetype")
 }
 
 body {
-    font-family: "Roboto", sans-serif;
+font-display: swap; font-family: "Roboto", sans-serif;
     font-weight: 300
 }
 
@@ -17105,7 +17105,7 @@ label.btn input[type="checkbox"]:disabled:checked+label:after {
 }
 
 select {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+font-display: swap; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
 }
 
 select.mdb-select {
@@ -17920,7 +17920,7 @@ button.mdb-autocomplete-clear svg {
     height: 100%;
     -o-object-fit: cover;
     object-fit: cover;
-    font-family: "object-fit: cover;"
+font-display: swap; font-family: "object-fit: cover;"
 }
 
 .sn-bg-1 {
@@ -27093,7 +27093,7 @@ ul.stepper li.completed a .grey-skin .circle {
 .picker__box .picker__header .picker__nav--prev:before,
 .picker__box .picker__header .picker__nav--next:before {
     display: block;
-    font-family: "Font Awesome 5 Free", sans-serif;
+font-display: swap; font-family: "Font Awesome 5 Free", sans-serif;
     font-weight: 900
 }
 

@@ -620,7 +620,7 @@ footer p {
 .loader_inner {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  font-family: "proxima-nova-soft", sans-serif;
+font-display: swap; font-family: "proxima-nova-soft", sans-serif;
   -webkit-user-select: none;
   overflow: hidden;
 }
@@ -922,7 +922,7 @@ a.patreon-link {
 }
 
 .badge-container .badge-text {
-  font-family: "Lato", sans-serif;
+font-display: swap; font-family: "Lato", sans-serif;
   font-size: 12px;
   padding: 2px;
   color: #fff;
