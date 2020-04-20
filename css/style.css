@@ -621,33 +621,34 @@ footer p {
   height: 100%;
   width: 100%;
   display: flex;
+  position: fixed;
   align-items: center;
   justify-content: center;
   background-color: white;
-  z-index: 2;
+  z-index: 2698;
 }
 
-svg {
+svg#load {
   overflow: visible;
   width: 100px;
   height: 150px;
 }
 
-svg g {
+svg#load g {
   animation: slide 1.5s linear infinite;
 }
 
-svg g:nth-child(2) {
+svg#load g:nth-child(2) {
   animation-delay: 0.375s;
 }
 
-svg g:nth-child(2) path {
+svg#load g:nth-child(2) path {
   animation-delay: 0.375s;
   stroke-dasharray: 0px 158px;
   stroke-dashoffset: 1px;
 }
 
-svg path {
+svg#load path {
   stroke: url(#gradient);
   stroke-width: 20px;
   stroke-linecap: round;
