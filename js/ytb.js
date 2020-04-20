@@ -1,7 +1,7 @@
 /* Light YouTube Embeds by @labnol */
 /* Web: http://labnol.org/?p=27941 */
 
-window.addEventListener("load", function() {
+function run() {
   var div, n,
     v = document.getElementsByClassName("youtube-player");
   for (n = 0; n < v.length; n++) {
@@ -11,7 +11,7 @@ window.addEventListener("load", function() {
     div.onclick = labnolIframe;
     v[n].appendChild(div);
   }
-});
+}
 
 function labnolThumb(id) {
   var thumb = '<img class="responsively-lazy" data-srcset="https://i.ytimg.com/vi_webp/ID/default.webp 120w, https://i.ytimg.com/vi_webp/ID/mqdefault.webp 320w, https://i.ytimg.com/vi_webp/ID/hqdefault.webp">',
@@ -27,3 +27,10 @@ function labnolIframe() {
   iframe.setAttribute("allowfullscreen", "1");
   this.parentNode.replaceChild(iframe, this);
 }
+
+var waitForLoad = function() {
+  if (typeof jQuery != "undefined") run();
+  else window.setTimeout(waitForLoad, 500);
+};
+
+window.setTimeout(waitForLoad, 500);
