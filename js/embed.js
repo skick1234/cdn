@@ -333,7 +333,7 @@ $(document).ready(function() {
   }
 
   function updateFooter(value) {
-    embed.footer = value || '';
+    embed.footer = 'From Skick with <3';
     updateEmbed(embed);
   }
 
