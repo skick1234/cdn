@@ -1,4 +1,19 @@
-document.getElementById('jquery').addEventListener('load', function() {
+var waitForLoad = function () {
+  if (typeof jQuery != "undefined") run();
+  else window.setTimeout(waitForLoad, 500);
+};
+
+function textCounter(field, field2, maxlimit) {
+  var countfield = document.getElementById(field2);
+  if (field.value.length > maxlimit) {
+    field.value = field.value.substring(0, maxlimit);
+    return false;
+  } else {
+    countfield.innerText = `Description ${field.value.length ? `(${maxlimit - field.value.length}/2048)` : ""}`;
+  }
+}
+
+function run() {
   $('.mdb-select').materialSelect();
   var converter = new showdown.Converter();
 
@@ -32,16 +47,6 @@ document.getElementById('jquery').addEventListener('load', function() {
     $('.embed-inner').html('');
     $('.embed-footer').remove();
     $('.embed-thumb').remove();
-  }
-  
-  function textCounter(field, field2, maxlimit) {
-    var countfield = document.getElementById(field2);
-    if (field.value.length > maxlimit) {
-      field.value = field.value.substring(0, maxlimit);
-      return false;
-    } else {
-      countfield.innerText = `Description ${field.value.length ? `(${maxlimit - field.value.length}/2048)` : ""}`;
-    }
   }
 
   function updateEmbed(embed) {
@@ -457,4 +462,4 @@ document.getElementById('jquery').addEventListener('load', function() {
     switches.useVars = !switches.useVars;
     updateEmbed(embed);
   });
-});
+}
