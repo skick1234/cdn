@@ -624,6 +624,7 @@ footer p {
   align-items: center;
   justify-content: center;
   background-color: white;
+  z-index: 2;
 }
 
 svg {
