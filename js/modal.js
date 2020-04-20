@@ -1,1 +1,1 @@
-$('#modal').modal('show');
+document.getElementById('jquery').addEventListener('load',function(){$('#modal').modal('show');});
