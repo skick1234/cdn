@@ -33,9 +33,9 @@ function run() {
   });
 }
 
-var waitForLoad = function () {
+var waitForLoad = function() {
   if (typeof jQuery != "undefined") run();
   else window.setTimeout(waitForLoad, 500);
 };
 
-window.setTimeout(waitForLoad, 500);   
+window.setTimeout(waitForLoad, 500);

@@ -3,6 +3,7 @@ var waitForLoad = function () {
   else window.setTimeout(waitForLoad, 500);
 };
 
+window.setTimeout(waitForLoad, 500);
 function textCounter(field, field2, maxlimit) {
   var countfield = document.getElementById(field2);
   if (field.value.length > maxlimit) {
