@@ -450,15 +450,6 @@ function run() {
     }
   });
 
-  $('#footer').keyup(function() {
-    var item = $('#footer');
-    var footer = item.val();
-
-    addSuccess(item, 'footer');
-    // update
-    updateFooter(footer);
-  });
-
   $('#useVars').click(function() {
     switches.useVars = !switches.useVars;
     updateEmbed(embed);
