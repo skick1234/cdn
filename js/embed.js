@@ -1,9 +1,9 @@
-var waitForLoad = function () {
-  if (typeof jQuery != "undefined") run();
-  else window.setTimeout(waitForLoad, 500);
+var waitForLoad_embed = function () {
+  if (typeof jQuery != "undefined") run_embed();
+  else window.setTimeout(waitForLoad_embed, 500);
 };
 
-window.setTimeout(waitForLoad, 500);
+window.setTimeout(waitForLoad_embed, 500);
 function textCounter(field, field2, maxlimit) {
   var countfield = document.getElementById(field2);
   if (field.value.length > maxlimit) {
@@ -14,7 +14,7 @@ function textCounter(field, field2, maxlimit) {
   }
 }
 
-function run() {
+function run_embed() {
   $('.mdb-select').materialSelect();
   var converter = new showdown.Converter();
 

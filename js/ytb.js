@@ -1,7 +1,7 @@
 /* Light YouTube Embeds by @labnol */
 /* Web: http://labnol.org/?p=27941 */
 
-function run() {
+function createYoutubeThumb() {
   var div, n,
     v = document.getElementsByClassName("youtube-player");
   for (n = 0; n < v.length; n++) {
@@ -28,9 +28,9 @@ function labnolIframe() {
   this.parentNode.replaceChild(iframe, this);
 }
 
-var waitForLoad = function() {
-  if (typeof jQuery != "undefined") run();
-  else window.setTimeout(waitForLoad, 500);
+var waitToYoutube = function() {
+  if (typeof jQuery != "undefined") createYoutubeThumb();
+  else window.setTimeout(waitToYoutube, 500);
 };
 
-window.setTimeout(waitForLoad, 500);
+window.setTimeout(waitToYoutube, 500);
