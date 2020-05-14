@@ -18,7 +18,8 @@ function run_add() {
   $('.datepicker').pickadate({
     format: 'dd/mm/yyyy',
     formatSubmit: 'dd/mm/yyyy',
-    max: true
+    max: true,
+    editable: true
   });
 
   $('#addDownload').click(() => {
