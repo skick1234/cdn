@@ -16,7 +16,7 @@ function embed(e) {
 
 function run_add() {
   $('.datepicker').pickadate({
-    format: 'dd/mm/yyyy',
+    format: 'dd/m/yyyy',
     formatSubmit: 'dd/mm/yyyy',
     max: true,
     editable: true
