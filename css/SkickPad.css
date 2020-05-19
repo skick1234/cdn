@@ -82,7 +82,7 @@ pre {
 }
 
 pre .line::before {
-  color: #4c6a71;
+  color: #3e4452;
   content: counter(line-numbering);
   counter-increment: line-numbering;
   display: inline-block;
@@ -99,7 +99,7 @@ pre .line::before {
 }
 
 #tools {
-  background: #08323c;
+  background: #262831;
   bottom: 0;
   font-size: 0;
   left: 0;
