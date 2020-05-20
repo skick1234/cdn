@@ -1,67 +1,71 @@
-var Skick = function() {
+var Skick = function () {
 	this.appName = "SkickPad";
-	this.$textarea = $('textarea');
-	this.$box = $('#code');
-	this.$code = $('#code code');
+	this.$textarea = $("textarea");
+	this.$box = $("#code");
+	this.$code = $("#code code");
 	this.configureShortcuts();
 	this.configureButtons();
 };
 
 // set title (browser window)
-Skick.prototype.setTitle = function(ext) {
-	var title = ext ? this.appName + ' - ' + ext : this.appName;
+Skick.prototype.setTitle = function (ext) {
+	var title = ext ? this.appName + " - " + ext : this.appName;
 	document.title = title;
 };
 
 // show the light key
-Skick.prototype.lightKey = function() {
-	this.configureKey(['new', 'save']);
+Skick.prototype.lightKey = function () {
+	this.configureKey(["new", "save"]);
 };
 
 // show the full key
-Skick.prototype.fullKey = function() {
-	this.configureKey(['new', 'duplicate', 'raw']);
+Skick.prototype.fullKey = function () {
+	this.configureKey(["new", "duplicate", "raw"]);
 };
 
 // enable certain keys
-Skick.prototype.configureKey = function(enable) {
-	$('#tools .function').each(function() {
+Skick.prototype.configureKey = function (enable) {
+	$("#tools .function").each(function () {
 		var $this = $(this);
 		for (var i = 0; i < enable.length; i++) {
 			if ($this.hasClass(enable[i])) {
-				$this.addClass('enabled');
+				$this.addClass("enabled");
 				return true;
 			}
 		}
-		$this.removeClass('enabled');
+		$this.removeClass("enabled");
 	});
 };
 
 // setup a new, blank document
-Skick.prototype.newDocument = function(hideHistory) {
+Skick.prototype.newDocument = function (hideHistory) {
 	this.$box.hide();
 	this.doc = new Skick_document();
 	if (!hideHistory) {
-		window.history.pushState(null, this.appName, '/pad');
+		window.history.pushState(null, this.appName, "/pad");
 	}
 	this.setTitle();
 	this.lightKey();
-	this.$textarea.val('').show('fast', function() {
+	this.$textarea.val("").show("fast", function () {
 		this.focus();
 	});
 };
 
 // load an existing document
-Skick.prototype.loadDocument = function(key) {
+Skick.prototype.loadDocument = function (key) {
 	var _this = this;
 	_this.doc = new Skick_document();
-	_this.doc.load(key, function(ret) {
+	_this.doc.load(key, function (ret) {
 		if (ret) {
 			_this.$code.html(ret.value);
 			_this.setTitle(ret.key);
-			window.history.pushState(null, _this.appName + '-' + ret.key, '/pad/' + ret.key);
+			window.history.pushState(
+				null,
+				_this.appName + "-" + ret.key,
+				"/pad/" + ret.key
+			);
 			_this.fullKey();
-			_this.$textarea.val('').hide();
+			_this.$textarea.val("").hide();
 			_this.$box.show();
 		} else {
 			_this.newDocument();
@@ -70,7 +74,7 @@ Skick.prototype.loadDocument = function(key) {
 };
 
 // duplicate the current document
-Skick.prototype.duplicateDocument = function() {
+Skick.prototype.duplicateDocument = function () {
 	if (this.doc.locked) {
 		var currentData = this.doc.data;
 		this.newDocument();
@@ -79,62 +83,71 @@ Skick.prototype.duplicateDocument = function() {
 };
 
 // lock the current document
-Skick.prototype.lockDocument = function() {
+Skick.prototype.lockDocument = function () {
 	var _this = this;
-	this.doc.save(this.$textarea.val(), function(err, ret) {
+	this.doc.save(this.$textarea.val(), function (err, ret) {
 		if (!err && ret) {
-			_this.$code.html(ret.value.trim().replace(/.+/g, "<span class=\"line\">$&</span>").replace(/^\s*[\r\n]/gm, "<span class=\"line\"></span>\n"));
+			_this.$code.html(
+				ret.value
+					.trim()
+					.replace(/.+/g, '<span class="line">$&</span>')
+					.replace(/^\s*[\r\n]/gm, '<span class="line"></span>\n')
+			);
 			_this.setTitle(ret.key);
-			window.history.pushState(null, _this.appName + '-' + ret.key, '/pad/' + ret.key);
+			window.history.pushState(
+				null,
+				_this.appName + "-" + ret.key,
+				"/pad/" + ret.key
+			);
 			_this.fullKey();
-			_this.$textarea.val('').hide();
+			_this.$textarea.val("").hide();
 			_this.$box.show();
 		}
 	});
 };
 
 // configure buttons and their shortcuts
-Skick.prototype.configureButtons = function() {
+Skick.prototype.configureButtons = function () {
 	var _this = this;
 	this.buttons = [
 		{
-			$where: $('#tools .save'),
-			shortcut: function(evt) {
+			$where: $("#tools .save"),
+			shortcut: function (evt) {
 				return evt.ctrlKey && evt.keyCode === 83;
 			},
-			action: function() {
-				if (_this.$textarea.val().replace(/^\s+|\s+$/g, '') !== '') {
+			action: function () {
+				if (_this.$textarea.val().replace(/^\s+|\s+$/g, "") !== "") {
 					_this.lockDocument();
 				}
-			}
+			},
 		},
 		{
-			$where: $('#tools .new'),
-			shortcut: function(evt) {
+			$where: $("#tools .new"),
+			shortcut: function (evt) {
 				return evt.ctrlKey && evt.keyCode === 32;
 			},
-			action: function() {
+			action: function () {
 				_this.newDocument(!_this.doc.key);
-			}
+			},
 		},
 		{
-			$where: $('#tools .duplicate'),
-			shortcut: function(evt) {
+			$where: $("#tools .duplicate"),
+			shortcut: function (evt) {
 				return _this.doc.locked && evt.ctrlKey && evt.keyCode === 68;
 			},
-			action: function() {
+			action: function () {
 				_this.duplicateDocument();
-			}
+			},
 		},
 		{
-			$where: $('#tools .raw'),
-			shortcut: function(evt) {
+			$where: $("#tools .raw"),
+			shortcut: function (evt) {
 				return evt.ctrlKey && evt.shiftKey && evt.keyCode === 82;
 			},
-			action: function() {
-				window.location.href = '/pad/raw/' + _this.doc.key;
-			}
-		}
+			action: function () {
+				window.location.href = "/pad/raw/" + _this.doc.key;
+			},
+		},
 	];
 	for (var i = 0; i < this.buttons.length; i++) {
 		this.configureButton(this.buttons[i]);
@@ -142,19 +155,19 @@ Skick.prototype.configureButtons = function() {
 };
 
 // handles the button-click
-Skick.prototype.configureButton = function(options) {
-	options.$where.click(function(evt) {
+Skick.prototype.configureButton = function (options) {
+	options.$where.click(function (evt) {
 		evt.preventDefault();
-		if (!options.clickDisabled && $(this).hasClass('enabled')) {
+		if (!options.clickDisabled && $(this).hasClass("enabled")) {
 			options.action();
 		}
 	});
 };
 
 // enables the configured shortcuts
-Skick.prototype.configureShortcuts = function() {
+Skick.prototype.configureShortcuts = function () {
 	var _this = this;
-	$(document.body).keydown(function(evt) {
+	$(document.body).keydown(function (evt) {
 		var button;
 		for (var i = 0; i < _this.buttons.length; i++) {
 			button = _this.buttons[i];
@@ -168,81 +181,96 @@ Skick.prototype.configureShortcuts = function() {
 };
 
 // represents a single document
-var Skick_document = function() {
+var Skick_document = function () {
 	this.locked = false;
 };
 
 // escape HTML-characters
-Skick_document.prototype.htmlEscape = function(s) {
+Skick_document.prototype.htmlEscape = function (s) {
 	return s
-	.replace(/&/g, '&amp;')
-	.replace(/>/g, '&gt;')
-	.replace(/</g, '&lt;')
-	.replace(/"/g, '&quot;');
+		.replace(/&/g, "&amp;")
+		.replace(/>/g, "&gt;")
+		.replace(/</g, "&lt;")
+		.replace(/"/g, "&quot;")
+		.replace(/'/g, "&#039;");
+};
+
+// unescape HTML-characters
+Skick_document.prototype.htmlUnescape = function (s) {
+	var e = document.createElement("textarea");
+	e.innerHTML = s;
+	// handle case of empty input
+	return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
 };
 
 // load a document from the server
-Skick_document.prototype.load = function(key, callback) {
+Skick_document.prototype.load = function (key, callback) {
 	var _this = this;
-	$.ajax('/documents/' + key, {
-		type: 'get',
-		dataType: 'json',
-		success: function(res) {
+	$.ajax("/documents/" + key, {
+		type: "get",
+		dataType: "json",
+		success: function (res) {
 			_this.locked = true;
 			_this.key = key;
 			_this.data = res.data;
 			high = hljs.highlightAuto(res.data).value;
 			callback({
-				value: high.replace(/.+/g, "<span class=\"line\">$&</span>").replace(/^\s*[\r\n]/gm, "<span class=\"line\"></span>\n"),
+				value: _this.htmlUnescape(high)
+					.replace(/.+/g, '<span class="line">$&</span>')
+					.replace(/^\s*[\r\n]/gm, '<span class="line"></span>\n'),
 				key: key,
 			});
 		},
-		error: function(err) {
+		error: function (err) {
 			callback(false);
-		}
+		},
 	});
 };
 
 // sends the document to the server
-Skick_document.prototype.save = function(data, callback) {
+Skick_document.prototype.save = function (data, callback) {
 	if (this.locked) return false;
 
-	this.data = data;
+	this.data = this.htmlEscape(data);
+	console.log(this.data);
 	var _this = this;
-	$.ajax('/documents', {
-		type: 'post',
-		data: data.trim(),
-		contentType: 'text/plain; charset=utf-8',
-		success: function(res) {
+	$.ajax("/documents", {
+		type: "post",
+		data: _this.data.trim(),
+		contentType: "text/plain; charset=utf-8",
+		success: function (res) {
 			new Skick().loadDocument(res.key);
 		},
-		error: function(res) {
+		error: function (res) {
 			try {
 				callback($.parseJSON(res.responseText));
 			} catch (e) {
-				callback({message: 'Something went wrong!'});
+				callback({ message: "Something went wrong!" });
 			}
-		}
+		},
 	});
 };
 
 // after page is loaded
-$(function() {
-	$('textarea').keydown(function(evt) {
+$(function () {
+	$("textarea").keydown(function (evt) {
 		// allow usage of tabs
 		if (evt.keyCode === 9) {
 			evt.preventDefault();
-			var myValue = '    ';
+			var myValue = "    ";
 			if (document.selection) {
 				this.focus();
 				sel = document.selection.createRange();
 				sel.text = myValue;
 				this.focus();
-			} else if (this.selectionStart || this.selectionStart == '0') {
+			} else if (this.selectionStart || this.selectionStart == "0") {
 				var startPos = this.selectionStart;
 				var endPos = this.selectionEnd;
 				var scrollTop = this.scrollTop;
-				this.value = this.value.substring(0, startPos) + myValue + this.value.substring(endPos, this.value.length);
+				this.value =
+					this.value.substring(0, startPos) +
+					myValue +
+					this.value.substring(endPos, this.value.length);
 				this.focus();
 				this.selectionStart = startPos + myValue.length;
 				this.selectionEnd = startPos + myValue.length;
@@ -256,7 +284,7 @@ $(function() {
 
 	var app = new Skick();
 	var path = window.location.pathname;
-	if (path === '/pad/' || path === '/pad') {
+	if (path === "/pad/" || path === "/pad") {
 		app.newDocument(true);
 	} else {
 		app.loadDocument(path.substring(5, path.length));
