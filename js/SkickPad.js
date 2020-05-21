@@ -73,6 +73,7 @@ Skick.prototype.loadDocument = function (key) {
 			_this.$textarea.val("").hide();
 			_this.$box.show();
 			_this.$box.removeClass().addClass(_this.$language.val());
+			hljs.initHighlighting.called = false;
 			hljs.initHighlighting();
 		} else {
 			_this.newDocument();
