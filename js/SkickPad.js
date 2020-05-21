@@ -72,7 +72,7 @@ Skick.prototype.loadDocument = function (key) {
 			_this.fullKey();
 			_this.$textarea.val("").hide();
 			_this.$box.show();
-			_this.$box.addClass(_this.$language.val());
+			_this.$box.removeClass().addClass(_this.$language.val());
 			hljs.initHighlighting();
 		} else {
 			_this.newDocument();
@@ -230,9 +230,11 @@ Skick_document.prototype.save = function (data, language, callback) {
 	var _this = this;
 	$.ajax("/documents", {
 		type: "post",
-		data: _this.data.trim(),
-		lang: language,
-		contentType: "text/plain; charset=utf-8",
+		data: JSON.stringify({
+			data: _this.data.trim(),
+			lang: language
+		}),
+		contentType: "application/json; charset=utf-8",
 		success: function (res) {
 			new Skick().loadDocument(res.key);
 		},
@@ -289,6 +291,7 @@ $(function () {
 		let opt = document.createElement("option");
 		opt.text = hljs.getLanguage(lang).name;
 		opt.value = lang;
+		if (lang == "c-like") opt.selected = true;
 		languages.add(opt);
 	});
 });
