@@ -3,6 +3,7 @@ var Skick = function () {
 	this.$textarea = $("textarea");
 	this.$box = $("#code");
 	this.$code = $("#code code");
+	this.$language = $("#lang");
 	this.configureShortcuts();
 	this.configureButtons();
 };
@@ -39,6 +40,7 @@ Skick.prototype.configureKey = function (enable) {
 
 // setup a new, blank document
 Skick.prototype.newDocument = function (hideHistory) {
+	this.$language.prop('disabled', false);
 	this.$box.hide();
 	this.doc = new Skick_document();
 	if (!hideHistory) {
@@ -57,6 +59,9 @@ Skick.prototype.loadDocument = function (key) {
 	_this.doc = new Skick_document();
 	_this.doc.load(key, function (ret) {
 		if (ret) {
+			if (ret.lang) _this.$language.val(ret.lang);
+			else _this.$language.val("c-like");
+			_this.$language.prop('disabled', true);
 			_this.$code.html(ret.value);
 			_this.setTitle(ret.key);
 			window.history.pushState(
@@ -67,6 +72,8 @@ Skick.prototype.loadDocument = function (key) {
 			_this.fullKey();
 			_this.$textarea.val("").hide();
 			_this.$box.show();
+			_this.$box.addClass(_this.$language.val());
+			hljs.initHighlighting();
 		} else {
 			_this.newDocument();
 		}
@@ -85,14 +92,12 @@ Skick.prototype.duplicateDocument = function () {
 // lock the current document
 Skick.prototype.lockDocument = function () {
 	var _this = this;
-	this.doc.save(this.$textarea.val(), function (err, ret) {
+	this.doc.save(this.$textarea.val(), this.$language.val(), function (
+		err,
+		ret
+	) {
 		if (!err && ret) {
-			_this.$code.html(
-				ret.value
-					.trim()
-					.replace(/.+/g, '<span class="line">$&</span>')
-					.replace(/^\s*[\r\n]/gm, '<span class="line"></span>\n')
-			);
+			_this.$code.html(ret.value.trim());
 			_this.setTitle(ret.key);
 			window.history.pushState(
 				null,
@@ -195,14 +200,6 @@ Skick_document.prototype.htmlEscape = function (s) {
 		.replace(/'/g, "&#039;");
 };
 
-// unescape HTML-characters
-Skick_document.prototype.htmlUnescape = function (s) {
-	var e = document.createElement("textarea");
-	e.innerHTML = s;
-	// handle case of empty input
-	return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
-};
-
 // load a document from the server
 Skick_document.prototype.load = function (key, callback) {
 	var _this = this;
@@ -213,11 +210,9 @@ Skick_document.prototype.load = function (key, callback) {
 			_this.locked = true;
 			_this.key = key;
 			_this.data = res.data;
-			high = hljs.highlightAuto(res.data).value;
 			callback({
-				value: _this.htmlUnescape(high)
-					.replace(/.+/g, '<span class="line">$&</span>')
-					.replace(/^\s*[\r\n]/gm, '<span class="line"></span>\n'),
+				value: res.data,
+				lang: res.lang,
 				key: key,
 			});
 		},
@@ -228,15 +223,15 @@ Skick_document.prototype.load = function (key, callback) {
 };
 
 // sends the document to the server
-Skick_document.prototype.save = function (data, callback) {
+Skick_document.prototype.save = function (data, language, callback) {
 	if (this.locked) return false;
 
 	this.data = this.htmlEscape(data);
-	console.log(this.data);
 	var _this = this;
 	$.ajax("/documents", {
 		type: "post",
 		data: _this.data.trim(),
+		lang: language,
 		contentType: "text/plain; charset=utf-8",
 		success: function (res) {
 			new Skick().loadDocument(res.key);
@@ -289,6 +284,11 @@ $(function () {
 	} else {
 		app.loadDocument(path.substring(5, path.length));
 	}
+	let languages = document.getElementById("lang");
+	hljs.listLanguages().forEach((lang) => {
+		let opt = document.createElement("option");
+		opt.text = hljs.getLanguage(lang).name;
+		opt.value = lang;
+		languages.add(opt);
+	});
 });
-
-hljs.initHighlightingOnLoad();
