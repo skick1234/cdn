@@ -84,7 +84,7 @@ Skick.prototype.loadDocument = function (key) {
 // duplicate the current document
 Skick.prototype.duplicateDocument = function () {
 	if (this.doc.locked) {
-		var currentData = this.doc.data;
+		var currentData = this.htmlUnescape(this.doc.data);
 		this.newDocument();
 		this.$textarea.val(currentData);
 	}
@@ -199,6 +199,12 @@ Skick_document.prototype.htmlEscape = function (s) {
 		.replace(/</g, "&lt;")
 		.replace(/"/g, "&quot;")
 		.replace(/'/g, "&#039;");
+};
+
+Skick.prototype.htmlUnescape = function (input) {
+	var e = document.createElement('textarea');
+	e.innerHTML = input;
+	return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
 };
 
 // load a document from the server
