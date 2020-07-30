@@ -333,6 +333,11 @@ END Header Area
   letter-spacing: 0;
 }
 
+.slider-inner a:hover {
+  background-color: #fff;
+  color: #f00;
+}
+
 .slider-inner a i {
   position: absolute;
   left: 16px;
