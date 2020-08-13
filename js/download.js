@@ -19,7 +19,7 @@ function downloadModal(gameData) {
     game.download.forEach(obj => {
       download.append(
         $('<li/>').append(
-          $('<a/>').attr('href', obj.url).text(obj.name)
+          $('<a/>').attr('href', obj.url).attr('target','_blank').text(obj.name)
         )
       );
     });
@@ -29,7 +29,7 @@ function downloadModal(gameData) {
       game.launcher.forEach(obj => {
         launcher.append(
           $('<li/>').append(
-            $('<a/>').attr('href', obj.url).text(obj.name)
+            $('<a/>').attr('href', obj.url).attr('target','_blank').text(obj.name)
           )
         );
       });
