@@ -6,7 +6,7 @@ var waitData = function() {
   else window.setTimeout(waitData, 500);
 };
 
-window.setTimeout(waitData, 500);
+waitData();
 
 function downloadModal(gameData) {
   $("#gameData").remove();

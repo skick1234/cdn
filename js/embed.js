@@ -1,5 +1,5 @@
 var waitForLoad_embed = function () {
-  if (typeof jQuery != "undefined") run_embed();
+  if (typeof jQuery != "undefined") window.setTimeout(run_embed(), 1000);
   else window.setTimeout(waitForLoad_embed, 500);
 };
 

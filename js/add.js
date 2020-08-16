@@ -15,6 +15,7 @@ function embed(e) {
 }
 
 function run_add() {
+  $('.mdb-select').materialSelect();
   $('.datepicker').pickadate({
     format: 'dd/mm/yyyy',
     formatSubmit: 'd/m/yyyy',
@@ -40,7 +41,7 @@ function run_add() {
 }
 
 var waitForLoad_add = function() {
-  if (typeof jQuery != "undefined") run_add();
+  if (typeof jQuery != "undefined") window.setTimeout(run_add(), 1000);
   else window.setTimeout(waitForLoad_add, 500);
 };
 
