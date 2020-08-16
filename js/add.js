@@ -40,8 +40,8 @@ function run_add() {
   });
 }
 
-var waitForLoad_add = function() {
-  if (typeof jQuery != "undefined") window.setTimeout(run_add(), 1000);
+var waitForLoad_add = function () {
+  if (typeof jQuery != "undefined" && typeof $('.mdb-select').materialSelect != "undefined") run_add();
   else window.setTimeout(waitForLoad_add, 500);
 };
 

@@ -29,7 +29,7 @@ function labnolIframe() {
 }
 
 var waitToYoutube = function() {
-  if (typeof jQuery != "undefined") window.setTimeout(createYoutubeThumb(), 1000);
+  if (typeof jQuery != "undefined") createYoutubeThumb();
   else window.setTimeout(waitToYoutube, 500);
 };
 

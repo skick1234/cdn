@@ -1,5 +1,5 @@
 var waitForLoad_embed = function () {
-  if (typeof jQuery != "undefined") window.setTimeout(run_embed(), 1000);
+  if (typeof jQuery != "undefined" && typeof $('.mdb-select').materialSelect != "undefined") run_embed();
   else window.setTimeout(waitForLoad_embed, 500);
 };
 
@@ -174,7 +174,7 @@ function run_embed() {
       $('.embed-inner').append('<img class="embed-image" src="' + embed.image + '" />');
     }
 
-    for (var _iterator = embed.fields, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
+    for (var _iterator = embed.fields, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator](); ;) {
       var _ref;
 
       if (_isArray) {
@@ -356,7 +356,7 @@ function run_embed() {
     $('#' + type + '-feedback').remove();
   }
 
-  $('#title').keyup(function() {
+  $('#title').keyup(function () {
     var item = $('#title');
     var title = item.val();
 
@@ -364,7 +364,7 @@ function run_embed() {
     updateTitle(title);
   });
 
-  $('#url').keyup(function() {
+  $('#url').keyup(function () {
     var item = $('#url');
     var url = item.val();
 
@@ -377,7 +377,7 @@ function run_embed() {
     }
   });
 
-  $('#icon').keyup(function() {
+  $('#icon').keyup(function () {
     var item = $('#icon');
     var icon = item.val();
 
@@ -390,7 +390,7 @@ function run_embed() {
     }
   });
 
-  $('#image').keyup(function() {
+  $('#image').keyup(function () {
     var item = $('#image');
     var image = item.val();
 
@@ -403,7 +403,7 @@ function run_embed() {
     }
   });
 
-  $('#description').keyup(function() {
+  $('#description').keyup(function () {
     var item = $('#description');
     var description = item.val();
     addSuccess(item, 'description');
@@ -411,11 +411,11 @@ function run_embed() {
     updateDescription(description);
   });
 
-  $('#color').change(function() {
+  $('#color').change(function () {
     updateColor($('#color').val());
   });
 
-  $('#authorName').keyup(function() {
+  $('#authorName').keyup(function () {
     var item = $('#authorName');
     var author_name = item.val();
 
@@ -424,7 +424,7 @@ function run_embed() {
     updateAuthorName(author_name);
   });
 
-  $('#authorURL').keyup(function() {
+  $('#authorURL').keyup(function () {
     var item = $('#authorURL');
     var author_url = item.val();
 
@@ -437,7 +437,7 @@ function run_embed() {
     }
   });
 
-  $('#authoriconURL').keyup(function() {
+  $('#authoriconURL').keyup(function () {
     var item = $('#authoriconURL');
     var author_icon = item.val();
 
@@ -450,7 +450,7 @@ function run_embed() {
     }
   });
 
-  $('#useVars').click(function() {
+  $('#useVars').click(function () {
     switches.useVars = !switches.useVars;
     updateEmbed(embed);
   });
