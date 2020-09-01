@@ -14,7 +14,7 @@ function createYoutubeThumb() {
 }
 
 function labnolThumb(id) {
-  var thumb = '<img class="responsively-lazy" data-srcset="https://i.ytimg.com/vi_webp/ID/default.webp 120w, https://i.ytimg.com/vi_webp/ID/mqdefault.webp 320w, https://i.ytimg.com/vi_webp/ID/hqdefault.webp">',
+  var thumb = '<img class="lazyload" data-srcset="https://i.ytimg.com/vi_webp/ID/default.webp 120w, https://i.ytimg.com/vi_webp/ID/mqdefault.webp 240w, https://i.ytimg.com/vi_webp/ID/hqdefault.webp">',
     play = '<div class="play"></div>';
   return thumb.replace(/ID/g, id) + play;
 }

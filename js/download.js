@@ -1,5 +1,5 @@
-var waitData = function() {
-  if (typeof jQuery != "undefined" && typeof gameData != "undefined") {
+var waitData = function () {
+  if (typeof jQuery !== "undefined" && typeof gameData != "undefined") {
     downloadModal(gameData);
     gameData = null;
   }
@@ -7,36 +7,62 @@ var waitData = function() {
 };
 
 waitData();
+DOMPurify.addHook('afterSanitizeAttributes', function (node) {
+  if ('target' in node) { node.setAttribute('target', '_blank'); }
+});
 
 function downloadModal(gameData) {
   $("#gameData").remove();
-  $(".download-btn").click(function(event) {
+  $(".download-btn").click(function (event) {
     event.preventDefault();
     let e = $(this);
     let game = gameData.filter(obj => obj.id == e.data('id'))[0];
-    $('#download-name').html(game.name);
-    let download = $('<ul/>');
-    game.download.forEach(obj => {
-      download.append(
-        $('<li/>').append(
-          $('<a/>').attr('href', obj.url).attr('target','_blank').text(obj.name)
-        )
-      );
-    });
-    let content = $('<div/>').append("Download").append(download);
-    if (game.launcher) {
-      let launcher = $('<ul/>');
-      game.launcher.forEach(obj => {
-        launcher.append(
-          $('<li/>').append(
-            $('<a/>').attr('href', obj.url).attr('target','_blank').text(obj.name)
-          )
-        );
-      });
-      content.append("Launcher").append(launcher);
-    }
-    $('#download-content')
-      .text(`Version: ${game.version} - ${game.update}`)
-      .append(content);
+    $('#download-name').text(game.name);
+    $('#download-content').html(DOMPurify.sanitize(marked(content(game), {
+      gfm: true,
+      breaks: true
+    })));
+    dlOpenModal();
   });
+}
+const content = game => {
+  let download = [], launcher = [];
+  game.download.forEach(obj => download.push(`<a rel="noreferrer" target="_blank" href="${obj.url}">${obj.name}</a>`));
+  if (game.launcher) game.launcher.forEach(obj => launcher.push(`<a rel="noreferrer" target="_blank" href="${obj.url}">${obj.name}</a>`));
+  return `
+#### Version
+${game.version} - ${game.update}
+
+### Download
+${download.join("\n")}
+
+${game.launcher ? `#### Launcher\n${launcher.join("\n")}` : ""}
+
+### Note
+${game.note}
+##### [FAQ](https://discord.com/channels/675231240068136960/683330171608367120)
+`
+}
+
+const dlModal = document.querySelector('.download-modal');
+const dlCloseButton = document.querySelectorAll('.download-modal-close');
+const dlModalClose = () => {
+  dlModal.classList.remove('fadeIn');
+  dlModal.classList.add('fadeOut');
+  setTimeout(() => {
+    dlModal.style.display = 'none';
+  }, 500);
+}
+const dlOpenModal = () => {
+  dlModal.classList.remove('fadeOut');
+  dlModal.classList.add('fadeIn');
+  dlModal.style.display = 'flex';
+}
+for (let i = 0; i < dlCloseButton.length; i++) {
+  const elements = dlCloseButton[i];
+  elements.onclick = (e) => dlModalClose();
+  dlModal.style.display = 'none';
+  window.onclick = function (event) {
+    if (event.target == dlModal) dlModalClose();
+  }
 }
