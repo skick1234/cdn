@@ -7,7 +7,7 @@
 html,
 body {
   font-family: "Quicksand", sans-serif;
-  @apply bg-dark-700 antialiased;
+  @apply bg-dark-700 antialiased overflow-x-hidden;
 }
 
 ul {
@@ -34,11 +34,17 @@ form label {
   @apply block uppercase tracking-wide text-dark-0 text-sm font-semibold mb-2;
 }
 
-form input, textarea {
-  @apply relative appearance-none block w-full bg-dark-400 text-dark-0 border border-dark-300 rounded py-3 px-4 leading-tight;
+form input {
+  @apply relative;
 }
 
-form input:focus, textarea:focus {
+form .input,
+textarea {
+  @apply appearance-none block w-full bg-dark-400 text-dark-0 border border-dark-300 rounded py-3 px-4 leading-tight;
+}
+
+form .input:focus,
+textarea:focus {
   @apply outline-none bg-dark-300 border-dark-200;
 }
 
@@ -52,6 +58,22 @@ form input:focus, textarea:focus {
   font-weight: 400 !important;
 } */
 
+
+/* Animation */
+.wave {
+  animation: move-forever 30s linear infinite;
+  width: 200%;
+}
+
+@keyframes move-forever {
+  0%, 100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(-100%);
+  }
+}
 
 .animated {
   -webkit-animation-duration: 1s;

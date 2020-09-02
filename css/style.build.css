@@ -21514,6 +21514,10 @@ video {
   z-index: -40;
 }
 
+.-z-50 {
+  z-index: -50;
+}
+
 .gap-0 {
   grid-gap: 0;
   gap: 0;
@@ -24310,6 +24314,7 @@ body {
   background-color: rgba(22, 23, 27, var(--bg-opacity));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 ul {
@@ -24347,8 +24352,12 @@ form label {
   margin-bottom: 0.5rem;
 }
 
-form input, textarea {
+form input {
   position: relative;
+}
+
+form .input,
+textarea {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -24372,7 +24381,8 @@ form input, textarea {
   line-height: 1.25;
 }
 
-form input:focus, textarea:focus {
+form .input:focus,
+textarea:focus {
   outline: 0;
   --bg-opacity: 1;
   background-color: #292c35;
@@ -24391,6 +24401,34 @@ form input:focus, textarea:focus {
   line-height: 1.5;
   font-weight: 400 !important;
 } */
+
+/* Animation */
+
+.wave {
+  -webkit-animation: move-forever 30s linear infinite;
+          animation: move-forever 30s linear infinite;
+  width: 200%;
+}
+
+@-webkit-keyframes move-forever {
+  0%, 100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes move-forever {
+  0%, 100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(-100%);
+  }
+}
 
 .animated {
   -webkit-animation-duration: 1s;
@@ -46098,6 +46136,10 @@ footer p {
 
   .sm\:-z-40 {
     z-index: -40;
+  }
+
+  .sm\:-z-50 {
+    z-index: -50;
   }
 
   .sm\:gap-0 {
@@ -69748,6 +69790,10 @@ footer p {
     z-index: -40;
   }
 
+  .md\:-z-50 {
+    z-index: -50;
+  }
+
   .md\:gap-0 {
     grid-gap: 0;
     gap: 0;
@@ -93396,6 +93442,10 @@ footer p {
     z-index: -40;
   }
 
+  .lg\:-z-50 {
+    z-index: -50;
+  }
+
   .lg\:gap-0 {
     grid-gap: 0;
     gap: 0;
@@ -117042,6 +117092,10 @@ footer p {
 
   .xl\:-z-40 {
     z-index: -40;
+  }
+
+  .xl\:-z-50 {
+    z-index: -50;
   }
 
   .xl\:gap-0 {
