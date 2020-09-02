@@ -24405,8 +24405,8 @@ textarea:focus {
 /* Animation */
 
 .wave {
-  -webkit-animation: move-forever 30s linear infinite;
-          animation: move-forever 30s linear infinite;
+  -webkit-animation: move-forever 60s linear infinite;
+          animation: move-forever 60s linear infinite;
   width: 200%;
 }
 
@@ -24416,7 +24416,7 @@ textarea:focus {
   }
 
   50% {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 }
 
@@ -24426,7 +24426,7 @@ textarea:focus {
   }
 
   50% {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 }
 

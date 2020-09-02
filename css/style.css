@@ -61,7 +61,7 @@ textarea:focus {
 
 /* Animation */
 .wave {
-  animation: move-forever 30s linear infinite;
+  animation: move-forever 60s linear infinite;
   width: 200%;
 }
 
@@ -71,7 +71,7 @@ textarea:focus {
   }
 
   50% {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 }
 
