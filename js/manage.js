@@ -64,7 +64,7 @@ const preview = () => {
   })
   let content = `
 #### Version
-${$("input[name=version]").val()} - ${$("input[name=update]").val()}
+${$("input[name=version]").val() || "Version"} - ${$("input[name=update]").val() || "Updated Date"}
 
 ### Download
 ${download.join("\n")}

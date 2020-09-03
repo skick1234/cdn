@@ -37,7 +37,7 @@ main .container {
 }
 
 form label {
-  @apply block uppercase tracking-wide text-dark-0 text-sm font-semibold mb-2;
+  @apply block uppercase tracking-wide text-dark-0 font-semibold mb-2;
 }
 
 form input {

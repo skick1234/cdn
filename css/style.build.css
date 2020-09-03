@@ -24600,7 +24600,6 @@ form label {
   --text-opacity: 1;
   color: #d4d4d4;
   color: rgba(212, 212, 212, var(--text-opacity));
-  font-size: 0.875rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
