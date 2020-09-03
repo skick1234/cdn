@@ -62,7 +62,6 @@
     border: 1px solid #cccccc;
   }
   .markdown p {
-    margin: 1em 0;
     word-wrap: break-word;
   }
   .markdown ol {

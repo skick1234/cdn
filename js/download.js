@@ -25,6 +25,7 @@ function downloadModal(gameData) {
     dlOpenModal();
   });
 }
+
 const content = game => {
   let download = [], launcher = [];
   game.download.forEach(obj => download.push(`<a rel="noreferrer" target="_blank" href="${obj.url}">${obj.name}</a>`));
@@ -40,6 +41,10 @@ ${game.launcher ? `#### Launcher\n${launcher.join("\n")}` : ""}
 
 ### Note
 ${game.note}
+
+### Update Note
+${game.updateNote}
+
 ##### [FAQ](https://discord.com/channels/675231240068136960/683330171608367120)
 `
 }
@@ -47,16 +52,20 @@ ${game.note}
 const dlModal = document.querySelector('.download-modal');
 const dlCloseButton = document.querySelectorAll('.download-modal-close');
 const dlModalClose = () => {
-  dlModal.classList.remove('fadeIn');
-  dlModal.classList.add('fadeOut');
+  dlModal.classList.remove('opacity-100');
+  dlModal.classList.add('opacity-0');
   setTimeout(() => {
+    dlModal.classList.remove('duration-500');
     dlModal.style.display = 'none';
   }, 500);
 }
 const dlOpenModal = () => {
-  dlModal.classList.remove('fadeOut');
-  dlModal.classList.add('fadeIn');
   dlModal.style.display = 'flex';
+  dlModal.classList.add('duration-500');
+  setTimeout(() => {
+    dlModal.classList.remove('opacity-0');
+    dlModal.classList.add('opacity-100');
+  }, 100)
 }
 for (let i = 0; i < dlCloseButton.length; i++) {
   const elements = dlCloseButton[i];

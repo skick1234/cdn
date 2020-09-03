@@ -14,21 +14,72 @@ function embed(e) {
   }
 }
 
-function run_add() {
-  $('#addDownload').click(() => {
-    let id = $('.download').length;
-    let input = `<div class="input-group mb-2 download"><input autocomplete="off" type="text" class="form-control col-md-2" name="download[${id}][name]" value="" placeholder="Title"><input autocomplete="off" type="url" class="form-control col-md-10" name="download[${id}][url]" value="" placeholder="URL"><div class="input-group-append"><button class="btn btn-outline-danger delete" type="button">&#x2715;</button></div></div>`;
-    $('#download').append(input);
-  });
+$('#addDownload').click(() => {
+  let id = $('.download').length;
+  let input = `
+  <div class="flex items-center mb-3 download">
+    <div class="inline-flex w-1/4">
+      <input class="input" oninput="preview()" name="download[name][]" autocomplete="off" placeholder="Name">
+    </div>
+    <div class="inline-flex w-2/3 ml-3">
+      <input class="input" oninput="preview()" name="download[url][]" type="url" autocomplete="off" placeholder="URL">
+    </div>
+    <button class="delete h-12 w-1/12 text-2xl ml-3 bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-300 hover:to-orange-300 text-white rounded" type="button">
+      <i class="far fa-times"></i>
+    </button>
+  </div>`;
+  $('#download').append(input);
+});
 
-  $('#addLauncher').click(() => {
-    let id = $('.launcher').length;
-    let input = `<div class="input-group mb-2 launcher"><input autocomplete="off" type="text" class="form-control col-md-2" name="launcher[${id}][name]" value="" placeholder="Title"><input autocomplete="off" type="url" class="form-control col-md-10" name="launcher[${id}][url]" value="" placeholder="URL"><div class="input-group-append"><button class="btn btn-outline-danger delete" type="button">&#x2715;</button></div></div>`;
-    $('#launcher').append(input);
-  });
+$('#addLauncher').click(() => {
+  let id = $('.launcher').length;
+  let input = `
+  <div class="flex items-center mb-3 launcher">
+    <div class="inline-flex w-1/4">
+      <input class="input" oninput="preview()" name="launcher[name][]" autocomplete="off" placeholder="Name">
+    </div>
+    <div class="inline-flex w-2/3 ml-3">
+      <input class="input" oninput="preview()" name="launcher[url][]" type="url" autocomplete="off" placeholder="URL">
+    </div>
+    <button class="delete h-12 w-1/12 text-2xl ml-3 bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-300 hover:to-orange-300 text-white rounded" type="button">
+      <i class="far fa-times"></i>
+    </button>
+  </div>`;
+  $('#launcher').append(input);
+});
 
-  $(document).on('click', '.delete', (e) => {
-    e.preventDefault();
-    e.target.closest('.input-group').remove();
-  });
+$(document).on('click', '.delete', (e) => {
+  e.preventDefault();
+  e.target.closest('.flex').remove();
+  preview();
+});
+
+const preview = () => {
+  let download = [], launcher = [];
+  $("input[name='download[name][]'").each((id, e) => {
+    download.push(`[${e.value}](${$("input[name='download[url][]'")[id].value})`)
+  })
+  $("input[name='launcher[name][]'").each((id, e) => {
+    launcher.push(`[${e.value}](${$("input[name='launcher[url][]'")[id].value})`)
+  })
+  let content = `
+#### Version
+${$("input[name=version]").val()} - ${$("input[name=update]").val()}
+
+### Download
+${download.join("\n")}
+
+${launcher.length ? `#### Launcher\n${launcher.join("\n")}` : ""}
+
+### Note
+${$("textarea[name=note]").val()}
+
+### Update Note
+${$("textarea[name=updateNote]").val()}
+
+##### [FAQ](https://discord.com/channels/675231240068136960/683330171608367120)
+`;
+  $("#preview").html(marked(content, { gfm: true, breaks: true }))
 }
+
+preview();

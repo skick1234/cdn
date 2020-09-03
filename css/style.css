@@ -10,6 +10,12 @@ body {
   @apply bg-dark-700 antialiased overflow-x-hidden;
 }
 
+ol,
+ul {
+  @apply list-inside pl-4 -mb-4;
+}
+
+
 ul {
   @apply list-disc;
 }
@@ -48,6 +54,13 @@ textarea:focus {
   @apply outline-none bg-dark-300 border-dark-200;
 }
 
+.markdown a:link,
+.markdown a:visited,
+.markdown a:hover,
+.markdown a:active {
+  color: #7289da;
+}
+
 /* .card-title {
   font-weight: 500 !important;
 }
@@ -66,7 +79,9 @@ textarea:focus {
 }
 
 @keyframes move-forever {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateX(0);
   }
 
