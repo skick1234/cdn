@@ -63,22 +63,21 @@ const preview = () => {
     launcher.push(`[${e.value}](${$("input[name='launcher[url][]'")[id].value})`)
   })
   let content = `
-#### Version
+### Version
 ${$("input[name=version]").val() || "Version"} - ${$("input[name=update]").val() || "Updated Date"}
 
 ### Download
 ${download.join("\n")}
 
-${launcher.length ? `#### Launcher\n${launcher.join("\n")}` : ""}
+${launcher.length ? `### Launcher\n${launcher.join("\n")}` : ""}
 
 ### Note
 ${$("textarea[name=note]").val()}
 
-### Update Note
-${$("textarea[name=updateNote]").val()}
-
 ##### [FAQ](https://discord.com/channels/675231240068136960/683330171608367120)
-`;
+
+### Update Note
+${$("textarea[name=updateNote]").val()}`;
   $("#preview").html(marked(content, { gfm: true, breaks: true }))
 }
 

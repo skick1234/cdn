@@ -1,6 +1,7 @@
 const modal = document.querySelector('.main-modal');
 const closeButton = document.querySelectorAll('.modal-close');
 const modalClose = () => {
+  document.body.classList.remove("overflow-hidden");
   modal.classList.remove('opacity-100');
   modal.classList.add('opacity-0');
   setTimeout(() => {
@@ -9,6 +10,7 @@ const modalClose = () => {
   }, 500);
 }
 const openModal = () => {
+  document.body.classList.add("overflow-hidden");
   modal.style.display = 'flex';
   modal.classList.add('duration-500');
   setTimeout(() => {

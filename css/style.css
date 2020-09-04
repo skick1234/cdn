@@ -61,17 +61,12 @@ textarea:focus {
   color: #7289da;
 }
 
-.wave {
-  position: absolute;
-  transform: rotate(180deg) translate(0, 0px);
-}
-
-svg.wave > path.wavePath {
+.wavePath {
   animation: wavePathAnim 10s ease infinite alternate;
   transition: color 0.5s ease;
 }
 
-svg.wave > path.wavePath2 {
+.wavePath2 {
   animation: wavePathAnim 10s ease infinite alternate;
   animation-delay: 3s;
   transition: color 0.5s ease;

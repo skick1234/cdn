@@ -31,27 +31,26 @@ const content = game => {
   game.download.forEach(obj => download.push(`<a rel="noreferrer" target="_blank" href="${obj.url}">${obj.name}</a>`));
   if (game.launcher) game.launcher.forEach(obj => launcher.push(`<a rel="noreferrer" target="_blank" href="${obj.url}">${obj.name}</a>`));
   return `
-#### Version
+### Version
 ${game.version} - ${game.update}
 
 ### Download
 ${download.join("\n")}
 
-${game.launcher ? `#### Launcher\n${launcher.join("\n")}` : ""}
+${game.launcher ? `### Launcher\n${launcher.join("\n")}` : ""}
 
 ### Note
 ${game.note}
 
-### Update Note
-${game.updateNote}
-
 ##### [FAQ](https://discord.com/channels/675231240068136960/683330171608367120)
-`
+
+${game.updateNote ? `### Update Note\n${game.updateNote}` : ""}`
 }
 
 const dlModal = document.querySelector('.download-modal');
 const dlCloseButton = document.querySelectorAll('.download-modal-close');
 const dlModalClose = () => {
+  document.body.classList.remove("overflow-hidden");
   dlModal.classList.remove('opacity-100');
   dlModal.classList.add('opacity-0');
   setTimeout(() => {
@@ -60,6 +59,7 @@ const dlModalClose = () => {
   }, 500);
 }
 const dlOpenModal = () => {
+  document.body.classList.add("overflow-hidden");
   dlModal.style.display = 'flex';
   dlModal.classList.add('duration-500');
   setTimeout(() => {
