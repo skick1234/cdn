@@ -57,10 +57,12 @@ $(document).on('click', '.delete', (e) => {
 const preview = () => {
   let download = [], launcher = [];
   $("input[name='download[name][]'").each((id, e) => {
-    download.push(`[${e.value}](${$("input[name='download[url][]'")[id].value})`)
+    let url = $("input[name='download[url][]'")[id].value;
+    download.push(url ? `[${e.value}](${url})` : e.value)
   })
   $("input[name='launcher[name][]'").each((id, e) => {
-    launcher.push(`[${e.value}](${$("input[name='launcher[url][]'")[id].value})`)
+    let url = $("input[name='launcher[url][]'")[id].value;
+    launcher.push(url ? `[${e.value}](${url})` : e.value)
   })
   let content = `
 ### Version

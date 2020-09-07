@@ -28,8 +28,8 @@ function downloadModal(gameData) {
 
 const content = game => {
   let download = [], launcher = [];
-  game.download.forEach(obj => download.push(`<a rel="noreferrer" target="_blank" href="${obj.url}">${obj.name}</a>`));
-  if (game.launcher) game.launcher.forEach(obj => launcher.push(`<a rel="noreferrer" target="_blank" href="${obj.url}">${obj.name}</a>`));
+  game.download.forEach(obj => download.push(obj.url ? `<a rel="noreferrer" target="_blank" href="${obj.url}">${obj.name}</a>` : obj.name));
+  if (game.launcher) game.launcher.forEach(obj => launcher.push(obj.url ? `<a rel="noreferrer" target="_blank" href="${obj.url}">${obj.name}</a>` : obj.name));
   return `
 ### Version
 ${game.version} - ${game.update}
