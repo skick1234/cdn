@@ -35,14 +35,14 @@ const content = game => {
 ${game.version} - ${game.update}
 
 ### Download
-${download.join("\n")}
+${download.join("\n").replace("(OD)", "(OneDrive)").replace("(GD)", "(Google Drive)")}
 
 ${game.launcher ? `### Launcher\n${launcher.join("\n")}` : ""}
 
 ### Note
 ${game.note}
 
-##### [FAQ](https://discord.com/channels/675231240068136960/683330171608367120)
+##### [FAQ](https://linkneverdie.com/thread/nhung-dieu-co-ban-can-tuan-thu-truoc-khi-tai-game-cai-game-va-choi-game-la-gi-76)
 
 ${game.updateNote ? `### Update Note\n${game.updateNote}` : ""}`
 }
