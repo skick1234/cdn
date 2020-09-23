@@ -35,7 +35,7 @@ const content = game => {
 ${game.version} - ${game.update}
 
 ### Download
-${download.join("\n").replace("(OD)", "(OneDrive)").replace("(GD)", "(Google Drive)")}
+${download.join("\n").replace(/\(OD\)/g, "(OneDrive)").replace(/\(GD\)/g, "(Google Drive)")}
 
 ${game.launcher ? `### Launcher\n${launcher.join("\n")}` : ""}
 
