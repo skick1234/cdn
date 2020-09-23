@@ -15,7 +15,6 @@ function embed(e) {
 }
 
 $('#addDownload').click(() => {
-  let id = $('.download').length;
   let input = `
   <div class="flex items-center mb-3 download">
     <div class="inline-flex w-1/4">
@@ -32,7 +31,6 @@ $('#addDownload').click(() => {
 });
 
 $('#addLauncher').click(() => {
-  let id = $('.launcher').length;
   let input = `
   <div class="flex items-center mb-3 launcher">
     <div class="inline-flex w-1/4">
