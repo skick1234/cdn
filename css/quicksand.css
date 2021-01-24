@@ -3,6 +3,7 @@
   font-family: 'Quicksand';
   font-style: normal;
   font-weight: 400;
+  font-display: swap;
   src: url('../font/quicksand/quicksand-v21-vietnamese_latin-regular.eot');
   /* IE9 Compat Modes */
   src: local(''),
@@ -23,6 +24,7 @@
   font-family: 'Quicksand';
   font-style: normal;
   font-weight: 500;
+  font-display: swap;
   src: url('../font/quicksand/quicksand-v21-vietnamese_latin-500.eot');
   /* IE9 Compat Modes */
   src: local(''),
@@ -43,6 +45,7 @@
   font-family: 'Quicksand';
   font-style: normal;
   font-weight: 700;
+  font-display: swap;
   src: url('../font/quicksand/quicksand-v21-vietnamese_latin-700.eot');
   /* IE9 Compat Modes */
   src: local(''),
@@ -63,6 +66,7 @@
   font-family: 'Quicksand';
   font-style: normal;
   font-weight: 600;
+  font-display: swap;
   src: url('../font/quicksand/quicksand-v21-vietnamese_latin-600.eot');
   /* IE9 Compat Modes */
   src: local(''),
