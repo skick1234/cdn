@@ -14,6 +14,10 @@ function embed(e) {
   }
 }
 
+function driveDownload(e) {
+  e.value = e.value.replace(/drive\.google\.com.*?\/d\/(.*?)(\/.*?)?$/, "drive.google.com/uc?id=$1&export=download")
+}
+
 $('#addDownload').click(() => {
   let input = `
   <div class="flex items-center mb-3 download">
