@@ -25,7 +25,7 @@ $('#addDownload').click(() => {
       <input class="input" oninput="preview()" name="download[name][]" autocomplete="off" placeholder="Name">
     </div>
     <div class="inline-flex w-2/3 ml-3">
-      <input class="input" oninput="preview()" name="download[url][]" type="url" autocomplete="off" placeholder="URL">
+      <input class="input" oninput="preview()" name="download[url][]" onchange="driveDownload(this)" type="url" autocomplete="off" placeholder="URL">
     </div>
     <button class="delete h-12 w-1/12 text-2xl ml-3 bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-300 hover:to-orange-300 text-white rounded" type="button">
       <i class="far fa-times"></i>
@@ -41,7 +41,7 @@ $('#addLauncher').click(() => {
       <input class="input" oninput="preview()" name="launcher[name][]" autocomplete="off" placeholder="Name">
     </div>
     <div class="inline-flex w-2/3 ml-3">
-      <input class="input" oninput="preview()" name="launcher[url][]" type="url" autocomplete="off" placeholder="URL">
+      <input class="input" oninput="preview()" name="launcher[url][]" onchange="driveDownload(this)" type="url" autocomplete="off" placeholder="URL">
     </div>
     <button class="delete h-12 w-1/12 text-2xl ml-3 bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-300 hover:to-orange-300 text-white rounded" type="button">
       <i class="far fa-times"></i>
