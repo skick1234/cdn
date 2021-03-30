@@ -15,7 +15,7 @@ body {
 }
 
 .simplebar-content {
-  height: 100%;
+	height: 100%;
 }
 
 #copy {
@@ -174,4 +174,8 @@ pre .line::before {
 
 #tools .function.enabled.raw:hover {
 	background-position: -116px bottom;
+}
+
+#copy {
+	margin-left: 0.5rem;
 }

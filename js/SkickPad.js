@@ -4,6 +4,7 @@ var Skick = function () {
 	this.$box = $("#code");
 	this.$code = $("#code code");
 	this.$language = $("#lang");
+	this.$copy = $("#copy");
 	this.configureShortcuts();
 	this.configureButtons();
 };
@@ -41,6 +42,7 @@ Skick.prototype.configureKey = function (enable) {
 // setup a new, blank document
 Skick.prototype.newDocument = function (hideHistory) {
 	this.$language.prop('disabled', false);
+	this.$copy.prop('disabled', true);
 	this.$box.hide();
 	this.doc = new Skick_document();
 	if (!hideHistory) {
@@ -75,6 +77,7 @@ Skick.prototype.loadDocument = function (key) {
 			_this.$box.removeClass().addClass(_this.$language.val());
 			hljs.initHighlighting.called = false;
 			hljs.initHighlighting();
+			_this.$copy.prop('disabled', false);
 		} else {
 			_this.newDocument();
 		}
@@ -287,6 +290,7 @@ $(function () {
 	});
 
 	var app = new Skick();
+	app.$copy.prop('disabled', true);
 	var path = window.location.pathname;
 	if (path === "/pad/" || path === "/pad") {
 		app.newDocument(true);
@@ -302,3 +306,16 @@ $(function () {
 		languages.add(opt);
 	});
 });
+
+function select(el) {
+	const range = document.createRange();
+	range.selectNodeContents(el);
+	const sel = window.getSelection();
+	sel.removeAllRanges();
+	sel.addRange(range);
+}
+function copy() {
+	select(document.getElementById("code"));
+	document.execCommand("copy");
+	alert("Copied!");
+}
