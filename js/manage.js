@@ -22,7 +22,7 @@ $('#addDownload').click(() => {
   let input = `
   <div class="flex items-center mb-3 download">
     <div class="inline-flex w-1/4">
-      <input class="input" oninput="preview()" name="download[name][]" autocomplete="off" placeholder="Name">
+      <input class="input" oninput="preview()" name="download[name][]" autocomplete="off" placeholder="Version">
     </div>
     <div class="inline-flex w-2/3 ml-3">
       <input class="input" oninput="preview()" name="download[url][]" onchange="driveDownload(this)" type="url" autocomplete="off" placeholder="URL">
@@ -38,7 +38,7 @@ $('#addLauncher').click(() => {
   let input = `
   <div class="flex items-center mb-3 launcher">
     <div class="inline-flex w-1/4">
-      <input class="input" oninput="preview()" name="launcher[name][]" autocomplete="off" placeholder="Name">
+      <input class="input" oninput="preview()" name="launcher[name][]" autocomplete="off" placeholder="Version">
     </div>
     <div class="inline-flex w-2/3 ml-3">
       <input class="input" oninput="preview()" name="launcher[url][]" onchange="driveDownload(this)" type="url" autocomplete="off" placeholder="URL">
