@@ -105,7 +105,7 @@ pre .line::before {
 }
 
 #tools .function {
-    background: url(function-icons.png);
+    background: url(./function-icons.png);
     display: inline-block;
     height: 37px;
     position: relative;
