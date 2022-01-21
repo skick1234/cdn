@@ -16,6 +16,10 @@ function driveDownload(e) {
     e.value = e.value.replace(/drive\.google\.com.*?\/d\/(.*?)(\/.*?)?$/, "drive.google.com/uc?id=$1&export=download")
 }
 
+function updatedDate(e) {
+    if (!e.value) e.value = `<t:${Math.floor(Date.now() / 1000)}:D>`
+}
+
 $("#addDownload").click(() => {
     let input = `
   <div class="flex items-center mb-3 download">
