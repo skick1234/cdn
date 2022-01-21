@@ -48,9 +48,12 @@ const content = game => {
         game.launcher.forEach(obj =>
             launcher.push(obj.url ? `<a rel="noreferrer" target="_blank" href="${obj.url}">${obj.name}</a>` : obj.name),
         )
+    let update = game.update
+    const match = update.match(/<t:(\d+)(?:\:\w+)?>/)
+    if (match) update = new Date(Number(match[1] * 1000)).toLocaleString("vi")
     return `
 ### Version
-${game.version} - ${game.update}
+${game.version} - ${update}
 
 ### Download
 ${download
